@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Neon Controller</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
+</head>
+
+<body class="controller-body">
+
+    <div id="permissionScreen" style="text-align: center;">
+        <h1 class="title">PILOT LINK</h1>
+        <p class="subtitle">Initialize Sensors</p>
+        <button id="enableBtn" class="btn-start">ACTIVATE</button>
+        <p id="errorMsg" style="color: red; margin-top: 20px;"></p>
+    </div>
+
+    <div id="controlScreen" class="hidden" style="text-align: center;">
+        <h2 class="title" style="font-size: 1.5rem;">CONNECTED</h2>
+
+        <div class="tilt-visualizer">
+            <div class="tilt-bar" id="tiltBar"></div>
+        </div>
+
+        <div class="debug-info">
+            TILT X: <span id="tiltVal">0.00</span>
+        </div>
+    </div>
+
+    <script src="controller.js"></script>
+</body>
+
+</html>

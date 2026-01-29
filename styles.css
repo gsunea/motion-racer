@@ -1,0 +1,162 @@
+:root {
+    --neon-blue: #00f3ff;
+    --neon-pink: #ff00ff;
+    --neon-purple: #bc13fe;
+    --bg-dark: #050510;
+    --bg-panel: rgba(20, 20, 40, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --font-main: 'Inter', sans-serif;
+    --font-display: 'Orbitron', 'Press Start 2P', sans-serif;
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg-dark);
+    font-family: var(--font-main);
+    color: white;
+    overflow: hidden;
+}
+
+.app-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+canvas {
+    display: block;
+}
+
+/* Connection Panel (Glassmorphism) */
+.connection-panel {
+    position: absolute;
+    z-index: 10;
+    background: var(--bg-panel);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(0, 243, 255, 0.1);
+    max-width: 500px;
+    width: 90%;
+    transition: opacity 0.5s ease;
+}
+
+.connection-panel.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.title {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    margin: 0 0 10px 0;
+    background: linear-gradient(to right, var(--neon-blue), var(--neon-pink));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
+}
+
+.subtitle {
+    color: #aaa;
+    margin-bottom: 30px;
+}
+
+.qr-container {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.room-code {
+    font-family: monospace;
+    font-size: 1.5rem;
+    color: var(--neon-blue);
+    letter-spacing: 2px;
+}
+
+.status-indicator {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.status-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #555;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.status-indicator.connected .status-dot {
+    background-color: #0f0;
+    box-shadow: 0 0 10px #0f0;
+}
+
+/* Controller Styles */
+.controller-body {
+    background: radial-gradient(circle at center, #1a1a2e 0%, #000 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.tilt-visualizer {
+    width: 250px;
+    height: 250px;
+    border: 2px solid var(--glass-border);
+    border-radius: 50%;
+    position: relative;
+    margin: 30px auto;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.tilt-bar {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    width: 4px;
+    height: 50%;
+    background: var(--neon-pink);
+    transform-origin: bottom center;
+    transition: transform 0.1s linear;
+    box-shadow: 0 0 15px var(--neon-pink);
+}
+
+.debug-info {
+    font-family: monospace;
+    color: var(--neon-blue);
+    margin-top: 20px;
+    background: rgba(0,0,0,0.5);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.btn-start {
+    background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+    border: none;
+    padding: 15px 40px;
+    color: white;
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 20px;
+    box-shadow: 0 0 20px rgba(188, 19, 254, 0.4);
+    transition: transform 0.2s;
+}
+
+.btn-start:active {
+    transform: scale(0.95);
+}
